@@ -160,6 +160,8 @@ control MyComputeChecksum(inout headers hdr, inout metadata meta) {
 control MyDeparser(packet_out packet, in headers hdr) {
     apply {
         /* TODO: add deparser logic */
+	packet.emit(hdr.ethernet)
+	if (packet.ipv4.ip)
     }
 }
 
